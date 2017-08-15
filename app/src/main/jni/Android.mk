@@ -3,13 +3,14 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := WAVPlayer
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 LOCAL_SRC_FILES := WAVPlayer.cpp
 
 # 使用WAVLib静态库
 LOCAL_STATIC_LIBRARIES += wavlib_static
 
 # 与OpenSL ES链接
-LOCAL_LDLIBS += -lOpenSLES
+LOCAL_LDLIBS += -lOpenSLES -landroid -llog
 
 include $(BUILD_SHARED_LIBRARY)
 
